@@ -5,8 +5,7 @@ class Stroke {
 
   Stroke() {
     circles = new ArrayList<Circle>();
-   rects = new ArrayList<Rect>();
-   
+    rects = new ArrayList<Rect>();
   }
 
   void displayCircle() {
@@ -22,8 +21,8 @@ class Stroke {
   void addCircle(PVector mouse) {
     circles.add(new Circle(mouse));
   }
-  
-    void displayRectangle() {
+
+  void displayRectangle() {
     noFill();
     beginShape();
     for (int i = 0; i<rects.size()-1; i++) {
@@ -37,3 +36,4 @@ class Stroke {
     rects.add(new Rect(mouse));
   }
 }
+
