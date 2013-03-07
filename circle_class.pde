@@ -4,9 +4,10 @@ class Circle{
   PVector acceleration;
   float mass;
   
-  Circle(int x, int y, float m){
-    location = new PVector(x,y);
-   mass = m;
+  Circle(PVector loc){
+    location = loc;
+  //  location = new PVector(x,y);
+  // mass = m;
   }
   
   PVector display(){
@@ -25,7 +26,5 @@ class Circle{
     void applyForce(PVector force) {
     PVector f = PVector.div(force, mass);
     acceleration.add(f);
-  }
-
-    
+  } 
 }

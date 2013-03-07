@@ -1,25 +1,35 @@
 //Circle [] c = new Circle [1];
 //Rect [] r = new Rect [1];
 
-ArrayList<Circle> circle = new ArrayList<Circle>();
+//ArrayList<Circle> circle = new ArrayList<Circle>();
 ArrayList<Rect> rect = new ArrayList<Rect>();
 
+ArrayList <Stroke> strokes;
 
 void setup() {
   size(800, 600);
   background(255);
   smooth();
+  strokes = new ArrayList<Stroke>();
 }
 
-void draw() {
-   noFill();
-  beginShape();
-  for (int i = 0; i<circle.size()-1; i++) {
 
-    Circle c = circle.get(i);
-    curveVertex(c.display().x, c.display().y);
+void draw() {
+  if(strokes != null){
+  if(mousePressed){
+  if(keyPressed){
+     if (key == 'c' || key == 'C') {
+       strokes.get(strokes.size()-1).addStroke(new PVector(mouseX,mouseY));
+     }
   }
-  endShape();
+  }
+  }
+  
+  for (Stroke s: strokes){
+    
+    s.display();
+  }
+  
   noFill();
   beginShape(QUADS);
   for (int i = 0; i<rect.size()-1; i++) {
@@ -28,18 +38,24 @@ void draw() {
    vertex(r.display().x, r.display().y);
   }
   endShape();
+}
 
+void mousePressed(){
 
-  if (mousePressed) {
-    if (keyPressed) {
-      if (key == 'c' || key == 'C') {
-        circle.add(new Circle(mouseX, mouseY, 1));
-      } 
-      if (key == 'r' || key == 'R') {
-        rect.add(new Rect(mouseX, mouseY, 1));
-      }
-    }
-  }
+  strokes.add(new Stroke());
+     }
+  
+
+//  if (mousePressed) {
+//    if (keyPressed) {
+//      if (key == 'c' || key == 'C') {
+//        circles.add(new Circle(mouseX, mouseY, 1));
+//      } 
+//      if (key == 'r' || key == 'R') {
+//        rect.add(new Rect(mouseX, mouseY, 1));
+//      }
+//    }
+  
   
 //  void forces(){
 //    
@@ -48,5 +64,5 @@ void draw() {
 //    PVector wind = new PVector(random(-0.1,0.1), 0
 //     }
 //  }
-}
+//}
 
