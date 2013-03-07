@@ -4,13 +4,13 @@ class Rect {
   PVector acceleration;
   float mass;
 
-  Rect(float x, float y, float m) {
-    location = new PVector(x,y);
-    mass = m;
+  Rect(PVector loc) {
+    location = loc;
+   // mass = m;
   }
 
   PVector display() {
-    //noStroke();
+    
     stroke(229, 16, 80);
     strokeWeight(2);
     return location;

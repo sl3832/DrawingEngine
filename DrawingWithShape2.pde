@@ -1,8 +1,9 @@
 //Circle [] c = new Circle [1];
 //Rect [] r = new Rect [1];
-
 //ArrayList<Circle> circle = new ArrayList<Circle>();
+
 ArrayList<Rect> rect = new ArrayList<Rect>();
+
 
 ArrayList <Stroke> strokes;
 
@@ -19,15 +20,14 @@ void draw() {
   if(mousePressed){
   if(keyPressed){
      if (key == 'c' || key == 'C') {
-       strokes.get(strokes.size()-1).addStroke(new PVector(mouseX,mouseY));
+       strokes.get(strokes.size()-1).addCircle(new PVector(mouseX,mouseY));
      }
   }
   }
   }
   
-  for (Stroke s: strokes){
-    
-    s.display();
+  for (Stroke s: strokes){ 
+    s.displayCircle();
   }
   
   noFill();
@@ -41,20 +41,9 @@ void draw() {
 }
 
 void mousePressed(){
-
   strokes.add(new Stroke());
      }
   
-
-//  if (mousePressed) {
-//    if (keyPressed) {
-//      if (key == 'c' || key == 'C') {
-//        circles.add(new Circle(mouseX, mouseY, 1));
-//      } 
-//      if (key == 'r' || key == 'R') {
-//        rect.add(new Rect(mouseX, mouseY, 1));
-//      }
-//    }
   
   
 //  void forces(){

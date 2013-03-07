@@ -6,12 +6,11 @@ class Circle{
   
   Circle(PVector loc){
     location = loc;
-  //  location = new PVector(x,y);
   // mass = m;
   }
   
   PVector display(){
-    //noStroke();
+
     stroke(36,117,170);
     strokeWeight(5);
     return location;
