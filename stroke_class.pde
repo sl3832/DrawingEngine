@@ -1,25 +1,9 @@
 class Stroke {
 
-  ArrayList <Circle> circles;
   ArrayList <Rect> rects;
 
   Stroke() {
-    circles = new ArrayList<Circle>();
     rects = new ArrayList<Rect>();
-  }
-
-  void displayCircle() {
-    noFill();
-    beginShape();
-    for (int i = 0; i<circles.size()-1; i++) {
-      Circle c = circles.get(i);
-      curveVertex(c.display().x, c.display().y);
-    }
-    endShape();
-  }
-
-  void addCircle(PVector mouse) {
-    circles.add(new Circle(mouse));
   }
 
   void displayRectangle() {
@@ -32,8 +16,15 @@ class Stroke {
     endShape();
   }
 
-  void addRectangle(PVector mouse) {
-    rects.add(new Rect(mouse));
+  void addRectangle(PVector mouse, float m) {
+    rects.add(new Rect(mouse, m));
+  }
+  
+  void run(){
+     for (int i = 0; i<rects.size()-1; i++) {
+        rects.get(i).run();
+    }
+    
   }
 }
 
